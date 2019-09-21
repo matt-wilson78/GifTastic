@@ -6,7 +6,7 @@ function renderButtons() {
 
     for (var i = 0; i < movieArray.length; i++) {
         console.log(movieArray[i]);
-        var movieButton = $("<button class='btn btn-primary border rounded m-2 movieButtonPress'></button>");
+        var movieButton = $("<button class='btn btn-primary border rounded m-2 movieButtonPress'>");
         movieButton.text(movieArray[i]);
         movieButton.attr("data-choice", movieArray[i]);
         $("#buttonArea").append(movieButton);
@@ -34,7 +34,7 @@ var giphySearch = function () {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function (response) {
+    }).then(function (dogBite) {
         $("#gifArea").append(response);
     })
 }
@@ -46,13 +46,3 @@ renderButtons(movieArray);
 
 
 
-
-    // var searchOMDB = function (movie) {
-    //     var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-    //     $.ajax({
-    //         url: queryURL,
-    //         method: "GET"
-    //     }).then(function (response) {
-    //         createRow(response);
-    //     });
-    // };
