@@ -6,7 +6,7 @@ function renderButtons() {
 
     for (var i = 0; i < movieArray.length; i++) {
         console.log(movieArray[i]);
-        var movieButton = $("<button class='btn btn-primary border rounded m-2 movieButtonPress'>");
+        var movieButton = $("<button type='button' class='m-1 movieButtonPress'>");
         movieButton.text(movieArray[i]);
         movieButton.attr("data-choice", movieArray[i]);
         $("#buttonArea").append(movieButton);
@@ -21,6 +21,7 @@ $("#submitMovie").on("click", function (event) {
     console.log(movieArray);
 
     renderButtons(movieArray);
+    $(movieInput).val("");
 
 })
 
@@ -35,7 +36,7 @@ var giphySearch = function () {
         url: queryURL,
         method: "GET"
     }).then(function (dogBite) {
-        $("#gifArea").append(response);
+        console.log(dogBite);
     })
 }
 

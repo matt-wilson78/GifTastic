@@ -22,14 +22,16 @@
             <h4>Add a Horror Movie</h4>
             <div class="row">
                 <div class="col-10" id="searchArea">
-                    <input type="text" id="movieInput">
+
+                    <form id="movie-form">
+
+                        <input type="text" id="movieInput"><br>
+                        <input id="submitMovie" type="submit" value="Add Movie">
+                    </form>
+
                 </div>
             </div>
-            <div class="row">
-                <div class="col-1" id="submitButton">
-                    <button type="submit" class="btn btn-primary mb-2 mt-2" id="submitMovie">Submit</button>
-                </div>
-            </div>
+            </form>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"

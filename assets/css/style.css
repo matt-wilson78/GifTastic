@@ -1,0 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
+#submitMovie {
+    margin-top: 10px;
+}
