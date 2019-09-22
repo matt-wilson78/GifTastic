@@ -25,18 +25,30 @@ $("#submitMovie").on("click", function (event) {
 
 })
 
-var giphySearch = function () {
+function giphySearch() {
 
     var movieToGif = $(this).attr("data-choice");
     console.log(movieToGif);
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=H2oc3aYnJi6baDdGeWxCAJ13aSY3fegb&&limit=10&offset=0&rating=PG-13&lang=en&q=" + movieToGif;
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=H2oc3aYnJi6baDdGeWxCAJ13aSY3fegb&&limit=10&offset=0&rating=PG&lang=en&q=" + movieToGif;
     console.log(queryURL);
 
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function (dogBite) {
-        console.log(dogBite);
+    }).then(function(gifObject) {
+        console.log(gifObject);
+        var results = gifObject.data;
+        
+        for (var i = 0; i < results.length; i++) {
+            var gifDiv = $("<div>");
+            var p = $("<p>").text("Rating: " + results[i].rating);
+            var gifPush = $("<img>");
+            gifPush.attr("src", results[i].images.fixed_height.url);
+            gifDiv.append(p);
+            gifDiv.append(gifPush);
+            $("gifArea").append(gifDiv);
+            
+        }
     })
 }
 
