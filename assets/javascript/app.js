@@ -40,19 +40,35 @@ function giphySearch() {
         console.log(results);
         
         for (var i = 0; i < results.length; i++) {
-            var gifDiv = $("<div>");
+            var gifDiv = $("<div class='float-left m-1'>");
             var p = $("<p>").text("Rating: " + results[i].rating);
             var gifPush = $("<img>");
-            gifPush.attr("src", results[i].images.fixed_height.url);
+            gifPush.attr("src", results[i].images.fixed_height_still.url);
+            gifPush.attr("data-state", "still");
+            gifPush.attr("data-still", results[i].images.fixed_height_still.url);
+            gifPush.attr("data-animate", results[i].images.fixed_height.url);
+            gifPush.addClass("gifButton");
             gifDiv.append(p);
             gifDiv.append(gifPush);
-            $("gifArea").append(gifDiv);
+            $("#gifArea").prepend(gifDiv);
             
         }
     })
 }
 
 $(document).on("click", ".movieButtonPress", giphySearch);
+
+$(document).on("click", ".gifButton", function() {
+    var state = $(this).attr("data-state");
+
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+})
 
 renderButtons(movieArray);
 
