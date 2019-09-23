@@ -5,3 +5,23 @@
 #submitMovie {
     margin-top: 10px;
 }
+
+button {
+    background-color: darkgreen;
+    border: 1px black solid;
+    border-radius: 12px;
+    color: white;
+}
+
+h1 {
+    background-color: white;
+}
+
+body {
+    background-image: url("https://images2.alphacoders.com/801/thumb-1920-80110.jpg");
+    background-repeat: repeat-y;
+  }
+
+  h4 {
+      color: white;
+  }
